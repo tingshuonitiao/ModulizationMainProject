@@ -1,0 +1,7 @@
+include ':base'
+include ':poi_impl'
+include ':poi_api'
+include ':enterprise_impl'
+include ':enterprise_api'
+include ':app'
+rootProject.name='My Application'

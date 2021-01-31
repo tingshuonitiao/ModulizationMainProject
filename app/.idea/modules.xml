@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2113667431/My_Application.iml" filepath="$PROJECT_DIR$/.idea/modules/2113667431/My_Application.iml" group="My_Application" />
+      <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" group="My Application/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1189355129/base.iml" filepath="$PROJECT_DIR$/.idea/modules/1189355129/base.iml" group="My Application/base" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1446242788/enterprise_api.iml" filepath="$PROJECT_DIR$/.idea/modules/1446242788/enterprise_api.iml" group="My Application/enterprise_api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1884089238/enterprise_impl.iml" filepath="$PROJECT_DIR$/.idea/modules/1884089238/enterprise_impl.iml" group="My Application/enterprise_impl" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1469903363/poi_api.iml" filepath="$PROJECT_DIR$/.idea/modules/-1469903363/poi_api.iml" group="My Application/poi_api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1677871773/poi_impl.iml" filepath="$PROJECT_DIR$/.idea/modules/1677871773/poi_impl.iml" group="My Application/poi_impl" />
+    </modules>
+  </component>
+</project>
