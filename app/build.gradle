@@ -21,7 +21,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.android.support:design:28.1.0'
@@ -30,13 +30,18 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation "androidx.core:core-ktx:1.3.1"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.annotation:annotation:1.1.0"
+
+    implementation(project(':base'))
     implementation(project(':enterprise_api'))
     implementation(project(':enterprise_impl'))
     implementation(project(':poi_api'))
     implementation(project(':poi_impl'))
-    implementation(project(':base'))
-    implementation "androidx.core:core-ktx:+"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.example.tsnt:happy_api:0.0.4-SNAPSHOT'
+    implementation 'com.example.tsnt:common_ui:0.0.2-SNAPSHOT'
+    implementation 'com.example.tsnt:common_util:0.0.1-SNAPSHOT'
 }
 repositories {
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }

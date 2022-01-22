@@ -1,0 +1,41 @@
+import groovy.json.JsonSlurper
+
+// get dependencies config from json
+def jsonSlurper = new JsonSlurper()
+def dependencies = jsonSlurper.parse(new File("dependency.json"))
+println("dependencies = ${dependencies}\n")
+
+// find module to be included by source
+dependencies.each {
+    if (it.includeSource == true) {
+        include ":${it.moduleName}"
+        if (it.inSingleProject == true) {
+            project(":${it.moduleName}").projectDir = file("../modulizationsubprojecta/${it.moduleName}")
+        }
+    }
+    println("${it.moduleName} include source ${it.includeSource == true ? "yes" : "no"}")
+}
+
+gradle.addProjectEvaluationListener(new ProjectEvaluationListener() {
+
+    @Override
+    void beforeEvaluate(Project project) {
+
+    }
+
+    @Override
+    void afterEvaluate(Project projectObj, ProjectState state) {
+        projectObj.configurations.all { Configuration ->
+            resolutionStrategy {
+                dependencySubstitution {
+                    dependencies.each { dependency ->
+                        if (dependency.includeSource == true) {
+                            substitute module("${dependency.groupId}:${dependency.artifactId}") with project(":${dependency.moduleName}")
+                        }
+                    }
+                }
+            }
+        }
+    }
+})
+

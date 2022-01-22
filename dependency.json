@@ -1,0 +1,26 @@
+[
+  {
+    "includeSource": false,
+    "inSingleProject": false,
+    "moduleName": "happy_api",
+    "version": "0.0.4-SNAPSHOT",
+    "artifactId": "happy_api",
+    "groupId": "com.example.tsnt"
+  },
+  {
+    "includeSource": false,
+    "inSingleProject": true,
+    "moduleName": "common_ui",
+    "version": "0.0.2-SNAPSHOT",
+    "artifactId": "common_ui",
+    "groupId": "com.example.tsnt"
+  },
+  {
+    "includeSource": false,
+    "inSingleProject": true,
+    "moduleName": "common_util",
+    "version": "0.0.1-SNAPSHOT",
+    "artifactId": "common_util",
+    "groupId": "com.example.tsnt"
+  }
+]

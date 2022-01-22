@@ -1,5 +1,4 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+apply from: rootProject.file('gradle/global/library.gradle')
 
 android {
     compileSdkVersion 30
@@ -33,9 +32,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.annotation:annotation:1.1.0"
 
-    implementation(project(':base'))
-    implementation(project(':enterprise_api'))
-    implementation(project(':poi_api'))
 }
 repositories {
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
