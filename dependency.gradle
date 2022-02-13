@@ -5,13 +5,41 @@ def jsonSlurper = new JsonSlurper()
 def dependencies = jsonSlurper.parse(new File("dependency.json"))
 println("dependencies = ${dependencies}\n")
 
+// find the repos to be cloned
+Set<String> repoAddresses = new HashSet<>()
+dependencies.each {
+    if (it.includeSource == true) {
+        repoAddresses.add(it.repoAddress)
+
+        // get repo name from repoAddress
+        int startIndex = it.repoAddress.lastIndexOf("/")
+        int endIndex = it.repoAddress.lastIndexOf(".")
+        it.repoName = it.repoAddress.substring(startIndex + 1, endIndex)
+    }
+}
+
+// clone the repos
+if (!repoAddresses.isEmpty()) {
+    String cloneScript = "./script/clone_repo.sh"
+
+    // apply for permission
+    Runtime.getRuntime().exec("chmod +x $cloneScript")
+
+    // execute clone script
+    StringBuilder builder = new StringBuilder(cloneScript)
+    repoAddresses.forEach {
+        builder.append(" ").append(it)
+    }
+    String cloneCommand = builder.toString()
+    Runtime.getRuntime().exec(cloneCommand)
+}
+
+
 // find module to be included by source
 dependencies.each {
     if (it.includeSource == true) {
         include ":${it.moduleName}"
-        if (it.inSingleProject == true) {
-            project(":${it.moduleName}").projectDir = file("../modulizationsubprojecta/${it.moduleName}")
-        }
+        project(":${it.moduleName}").projectDir = file("../${it.repoName}/${it.moduleName}")
     }
     println("${it.moduleName} include source ${it.includeSource == true ? "yes" : "no"}")
 }
